@@ -1,9 +1,6 @@
 package main
 
-import (
-	"github.com/VITAMINBOOST/gost/gostrouter"
-	"github.com/gin-gonic/gin"
-)
+import "github.com/gin-gonic/gin"
 
 var r *gin.Engine
 
@@ -11,8 +8,12 @@ func main() {
 	r = gin.Default()
 
 	r.Use(gin.Recovery())
+	InitRouter()
 
-	gostrouter.InitRouter()
-	r.Run(":9900")
+	r.MaxMultipartMemory = 8 << 20 // 8 MiB
 
+	r.Static("/files", "./mediafiles/")
+	r.LoadHTMLGlob("./templates/*")
+
+	r.Run(":9000")
 }

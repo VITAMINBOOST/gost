@@ -1,4 +1,4 @@
-module github.com/VITAMINBOOST/gost.git
+module gost
 
 go 1.14
 

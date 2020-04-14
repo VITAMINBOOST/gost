@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tongchun's go gin</title>
+    </head>
+    <body>
+        <h2>page: {{ .page }}</h2>
+        <form action="http://localhost:9000/v1/audio/upload" method="POST" enctype="multipart/form-data">
+            upload file: <input type="file" name="file">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
